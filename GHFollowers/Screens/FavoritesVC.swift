@@ -14,6 +14,18 @@ class FavoritesVC: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = .systemBlue
+        
+        
+        PersistenceManager.retrieveFavorites { (result) in
+            
+            switch result {
+            case .success(let favorites):
+                print(favorites)
+            case .failure(let error):
+                self.presentGFAlertOnMainThread(title: "something went wrong", message: error.rawValue, buttonTitle: "Ok")
+            }
+            
+        }
     }
     
 
