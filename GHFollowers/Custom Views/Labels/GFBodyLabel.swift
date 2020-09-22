@@ -19,12 +19,9 @@ class GFBodyLabel: UILabel {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
-    init(textAlignment: NSTextAlignment) {
-        super.init(frame: .zero)
+    convenience init(textAlignment: NSTextAlignment) {
+        self.init(frame: .zero)
         self.textAlignment  = textAlignment
-        
-        configure()
     }
     
     
@@ -32,6 +29,7 @@ class GFBodyLabel: UILabel {
         textColor                                   = .secondaryLabel
         font                                        = UIFont.preferredFont(forTextStyle: .body)
         adjustsFontSizeToFitWidth                   = true
+        adjustsFontForContentSizeCategory           = true
         minimumScaleFactor                          = 0.75
         lineBreakMode                               = .byWordWrapping
         translatesAutoresizingMaskIntoConstraints   = false
